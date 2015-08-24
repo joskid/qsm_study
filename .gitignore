@@ -1,3 +1,8 @@
+bin
+.#*
+*~
+*.map
+
 # Object files
 *.o
 *.ko
