@@ -45,6 +45,7 @@
     #include "qs_dummy.h" /* disable the QS software tracing */
 #endif /* Q_SPY */
 
+#include <stdio.h>
 Q_DEFINE_THIS_MODULE("qep_hsm")
 
 /****************************************************************************/
@@ -260,6 +261,7 @@ void QHsm_dispatch_(QHsm * const me, QEvt const * const e) {
     QState r;
     QS_CRIT_STAT_
 
+      printf("Entering QHsm_dispatch_\n");
     /** @pre the state configuration must be stable */
     Q_REQUIRE_ID(400, t == me->temp.fun);
 
@@ -292,9 +294,12 @@ void QHsm_dispatch_(QHsm * const me, QEvt const * const e) {
         QStateHandler path[QHSM_MAX_NEST_DEPTH_];
         int_fast8_t ip;
 
+        printf("Setting path\n");
         path[0] = me->temp.fun; /* save the target of the transition */
         path[1] = t;
         path[2] = s;
+        printf("0: 0x%08X   t: 0x%08X s: 0x%08X\n",
+               (unsigned int)(me->temp.fun), t, s);
 
         /* exit current state to transition source s... */
         for (; t != s; t = me->temp.fun) {
@@ -305,6 +310,8 @@ void QHsm_dispatch_(QHsm * const me, QEvt const * const e) {
                 QS_END_()
 
                 (void)QEP_TRIG_(t, QEP_EMPTY_SIG_); /* find superstate of t */
+                printf("0: 0x%08X   t: 0x%08X s: 0x%08X\n",
+                       me->temp.fun, t, s);
             }
         }
 
