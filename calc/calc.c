@@ -38,6 +38,7 @@
 
 
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 
 typedef struct CalcTag {
@@ -118,7 +119,7 @@ QState Calc_on( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_on" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_on" );
 
-   printf( "StateHandler = Calc_on        " );
+   printf( "(%p) StateHandler = Calc_on        ", &Calc_on );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -149,7 +150,7 @@ QState Calc_error( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_error" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_error" );
 
-   printf( "StateHandler = Calc_error     " );
+   printf( "(%p) StateHandler = Calc_error     ", &Calc_error );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -168,7 +169,7 @@ QState Calc_ready( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_ready" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_ready" );
 
-   printf( "StateHandler = Calc_ready     " );
+   printf( "(%p) StateHandler = Calc_ready     ", &Calc_ready );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -210,7 +211,7 @@ QState Calc_result( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_result" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_result" );
 
-   printf( "StateHandler = Calc_result    " );
+   printf( "(%p) StateHandler = Calc_result    ", &Calc_result );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -229,7 +230,7 @@ QState Calc_begin( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_begin" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_begin" );
 
-   printf( "StateHandler = Calc_begin     " );
+   printf( "(%p) StateHandler = Calc_begin     ", &Calc_begin );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -252,7 +253,7 @@ QState Calc_negated1( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_negated1" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_negated1" );
 
-   printf( "StateHandler = Calc_negated1  " );
+   printf( "(%p) StateHandler = Calc_negated1  ", &Calc_negated1 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -289,7 +290,7 @@ QState Calc_negated2( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_negated2" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_negated2" );
 
-   printf( "StateHandler = Calc_negated2  " );
+   printf( "(%p) StateHandler = Calc_negated2  ", &Calc_negated2 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -325,7 +326,7 @@ QState Calc_operand1( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_operand1" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_operand1" );
 
-   printf( "StateHandler = Calc_operand1  " );
+   printf( "(%p) StateHandler = Calc_operand1  ", &Calc_operand1 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -355,7 +356,7 @@ QState Calc_zero1( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_zero1" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_zero1" );
 
-   printf( "StateHandler = Calc_zero1     " );
+   printf( "(%p) StateHandler = Calc_zero1     ", &Calc_zero1 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -384,7 +385,7 @@ QState Calc_int1( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_int1" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_int1" );
 
-   printf( "StateHandler = Calc_int1      " );
+   printf( "(%p) StateHandler = Calc_int1      ", &Calc_int1 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -412,7 +413,7 @@ QState Calc_frac1( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_frac1" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_frac1" );
 
-   printf( "StateHandler = Calc_frac1     " );
+   printf( "(%p) StateHandler = Calc_frac1     ", &Calc_frac1 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -438,7 +439,7 @@ QState Calc_opEntered( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_opEntered" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_opEntered" );
 
-   printf( "StateHandler = Calc_opEntered " );
+   printf( "(%p) StateHandler = Calc_opEntered ", &Calc_opEntered );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -478,7 +479,7 @@ QState Calc_operand2( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_operand2" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_operand2" );
 
-   printf( "StateHandler = Calc_operand2  " );
+   printf( "(%p) StateHandler = Calc_operand2  ", &Calc_operand2 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -513,7 +514,7 @@ QState Calc_zero2( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_zero2" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_zero2" );
 
-   printf( "StateHandler = Calc_zero2     " );
+   printf( "(%p) StateHandler = Calc_zero2     ", &Calc_zero2 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -542,7 +543,7 @@ QState Calc_int2( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_int2" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_int2" );
 
-   printf( "StateHandler = Calc_int2      " );
+   printf( "(%p) StateHandler = Calc_int2      ", &Calc_int2 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -570,7 +571,7 @@ QState Calc_frac2( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_frac2" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_frac2" );
 
-   printf( "StateHandler = Calc_frac2     " );
+   printf( "(%p) StateHandler = Calc_frac2     ", &Calc_frac2 );
    printSignal( e->sig );
    switch( e->sig ) 
    {
@@ -598,7 +599,7 @@ QState Calc_final( Calc *me, QEvt const *e )
    if( strcmp( StateHandlerHistory, "Calc_final" ) ) printf( "\n" );
    strcpy( StateHandlerHistory, "Calc_final" );
 
-   printf( "StateHandler = Calc_final     " );
+   printf( "(%p) StateHandler = Calc_final     ", &Calc_final );
    printSignal( e->sig );
    switch( e->sig ) 
    {
